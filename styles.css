@@ -1,0 +1,117 @@
+*{
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #F1EFEC; /* Light off-white background */
+}
+
+.title {
+    color: #050505; /* Off-white text */
+    margin-bottom: 40px;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.keyboard-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.keyboard-wrapper {
+    width: 800px;
+    background-color: #D4C9BE; /* Lighter beige for the keyboard container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Softer shadow for a lighter look */
+}
+
+.keyboard {
+    position: relative;
+    background-color: #123458; /* Dark blue keys */
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 40px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #F1EFEC; /* Off-white text for keys */
+    flex: 1;
+    z-index: 1;
+}
+
+.keyboard:hover {
+    background-color: #1A4A7A; /* Slightly lighter blue on hover */
+}
+
+.keyboard:active {
+    background-color: #0F2E4F; /* Darker blue on active */
+    transform: scale(0.95);
+}
+
+.keyboard.special {
+    background-color: #D4C9BE; /* Beige for special keys */
+    color: #030303; /* Black text for special keys */
+}
+
+.keyboard.special:hover {
+    background-color: #E0D4C5; 
+}
+
+.spacebar {
+    flex: 7;
+    background-color: #123458; 
+    color: #F1EFEC; 
+}
+
+.keyboard::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, red, green, blue, red);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    filter: blur(3px);
+}
+
+.keyboard:active::before {
+    opacity: 1;
+    animation: rgb-glow 2s linear infinite;
+}
+
+@keyframes rgb-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
